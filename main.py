@@ -5,3 +5,4 @@ def newFuc(list):
 
 newList = ["Banane","Orange", "Zitrone", "Birne"]
 newFuc(newList)
+
