@@ -57,13 +57,16 @@ for i in range(5):
             print(abc[index], " ",  end="")
             index += 1
     print()
-
+#aufgabe 5
 menge = []
-datei = int(input("wie viele Datenträger?"))
+datei = int(input("wie viele Datenträger? "))
 for i in range(datei):
     datei2 = int(input(f"geben Sie die Größe der Datei {i+1} in KB"))
     menge.append(datei2)
     menge[i] /= 1000000
 print(f"Die gesamtgröße der Dateien  beträgt: {sum(menge)} GB")
-
-
+#aufgabe 6
+for i in range(1,10):
+    for j in range(1,11):
+        print(i, "*", j ,"=", i*j)
+    print()
