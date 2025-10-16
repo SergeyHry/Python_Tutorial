@@ -1,5 +1,5 @@
 from enum import nonmember
-
+import matplotlib.pyplot as plt
 import requests
 from bs4 import BeautifulSoup
 import csv
@@ -25,7 +25,6 @@ def fetch(url):
     except Exception as e:
         print("Fehler beim Laden:", e)
         return None
-
 def parse_search_page(html, base_url="https://www.amazon.de/"):
     soup = BeautifulSoup(html, "html.parser")
     results = []
@@ -57,23 +56,20 @@ def parse_search_page(html, base_url="https://www.amazon.de/"):
         if img_tag:
             img_url = img_tag.get("src") or img_tag.get("data-src") or img_tag.get("data-old-hires")
         else:
-
             img_tag2 = it.find("img")
             img_url = img_tag2.get("src") if img_tag2 and img_tag2.get("src") else None
-
         # Fallbacks
         if not title and it.select_one("span.a-size-medium"):
             title = it.select_one("span.a-size-medium").get_text(strip=True)
-
         results.append({
             "asin": asin,
             "title": title,
             "price": price,
             "link": link,
             "img_url": img_url
+
         })
     return results
-
 def save_to_csv(rows, filename):
     keys = ["asin", "title", "price", "link", "img_url"]
     with open(filename, "w", newline="", encoding="utf-8") as f:
@@ -90,6 +86,8 @@ def main():
         return
 
     results = parse_search_page(html)
+    pricefloat(results)
+
     print(f"Gefundene Items auf Seite: {len(results)}")
 
     save_to_csv(results, OUTPUT_CSV)
@@ -98,3 +96,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
