@@ -86,7 +86,6 @@ def main():
         return
 
     results = parse_search_page(html)
-    pricefloat(results)
 
     print(f"Gefundene Items auf Seite: {len(results)}")
 
