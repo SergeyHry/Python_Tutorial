@@ -3,7 +3,7 @@ import pandas as pd
 
 # Verbindung aufbauen (anpassen!)
 user = "root"
-password = "passwort"
+password = "****"
 host = "localhost"
 port = 3307
 database = "bookstore"
