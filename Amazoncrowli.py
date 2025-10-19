@@ -12,7 +12,7 @@ from urllib.parse import urljoin
 input = input("nach welchem Artikel suchst du?: ")
 
 START_URL = "https://www.amazon.de/s?k="+input  # Beispiel-Suche; ersetzen
-OUTPUT_CSV = "amazon_products.csv"
+OUTPUT_CSV = "C:/Users/Student/Desktop/amazon_products.csv"
 DELAY_MIN = 2.0
 DELAY_MAX = 10.0
 HEADERS = {"User-Agent": UserAgent().random, "Accept-Language": "de-DE,de;q=0.9,en;q=0.8"}
