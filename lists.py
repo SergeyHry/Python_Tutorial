@@ -1,3 +1,5 @@
+import datetime
+
 people = ["Max", "Alessandro", "Sergey", "Timo", "Daniel"]
 for person in people:
     people2 = ("/").join(people)
@@ -34,3 +36,22 @@ try:
         print(v +" ", end= "")
 except Exception as e:
     print("so was geht nicht!", e)
+
+print()
+def alter(str):
+    str2 = str.split("-")
+    year = int(str2[0])
+    month = int(str2[1])
+    day = int(str2[2])
+    datum_age = datetime.date(year, month, day)
+
+    datum_now = datetime.date.today()
+    dif = datum_now - datum_age
+    dif2 = round(dif.days / 365)
+    return int(dif2)
+
+print(alter("1996-10-07"))
+
+
+
+
